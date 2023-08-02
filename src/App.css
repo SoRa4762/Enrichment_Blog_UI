@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  background: rgb(132, 0, 255);
+  height: 100vh;
+  width: 100vw;
+}
+
+.Header {
+  padding: 4rem 30rem;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.logos,
+.letters {
+  display: flex;
+  justify-content: space-around;
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.logos {
+  background: rgb(231, 231, 231);
+  padding: 1rem 0rem;
+  border-radius: 8px;
+}
+
+.CRUD_Section {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.Add_Section {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+}
+
+.Update_Section {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+}
+
+.Btn {
+  /* padding: 1rem 5rem; */
+  height: 2rem;
+  width: 6rem;
+  color: white;
+  background: blue;
+  margin-top: 1rem;
+  padding: 2px 1rem;
+  border-radius: 64px;
+  font-size: 18px;
+  border: none;
+}
+
+.hover::button {
+  cursor: pointer;
+}
+
+.group_btn {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.inputField {
+  /* padding: 5rem; */
+  height: 240px;
+  width: 400px;
+  background: rgb(231, 231, 231);
+}
