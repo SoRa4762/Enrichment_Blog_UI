@@ -1,9 +1,17 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+
+  const [allBlogs, setAllBlogs] = useState([]);
+
+  useEffect(function () {
+    fetch("http://localhost:8000/blog")
+      .then((response) => response.json())
+      .then((data) => setAllBlogs(data));
+  }, []);
 
   function setBlogTitle(event) {
     setTitle(event.target.value);
@@ -23,9 +31,19 @@ function App() {
         headers: {
           "Content-Type": "application/json",
         },
-      }).then((response) => console.log(response));
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data) {
+            alert("Blog added successfully!");
+          } else {
+            alert("Blog failed to be added");
+          }
+        });
     }
   }
+
+  console.log(allBlogs);
 
   return (
     <>
@@ -67,19 +85,15 @@ function App() {
               Add
             </button>
           </div>
-
-          <div className="Update_Section">
-            <textarea
-              name=""
-              id=""
-              cols="30"
-              rows="10"
-              className="inputField"
-            ></textarea>
-            <div className="group_btn">
-              <button className="Btn">Update</button>
-              <button className="Btn">Delete</button>
-            </div>
+          <div className="display_all_blog">
+            {allBlogs.map(function (blog) {
+              return (
+                <div key={blog._id} className="blog">
+                  <h2>{blog.title}</h2>
+                  <p>{blog.content}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

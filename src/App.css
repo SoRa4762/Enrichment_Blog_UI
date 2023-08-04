@@ -94,3 +94,14 @@ body {
   background: rgb(231, 231, 231);
   font-size: 1rem;
 }
+
+.display_all_blog {
+  background-color: #fff !important;
+  padding: 1rem;
+}
+
+.blog {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #1b1b1b;
+  padding: 0.5rem;
+}
