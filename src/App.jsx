@@ -1,7 +1,31 @@
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  // const [count, setCount] = useState(0)
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
+  function setBlogTitle(event) {
+    setTitle(event.target.value);
+  }
+
+  function setBlogContent(event) {
+    setContent(event.target.value);
+  }
+
+  function onAddButtonClick(event) {
+    if (!(title && content)) {
+      alert("Title or content cannot be empty!");
+    } else {
+      fetch("http://localhost:8000/blog", {
+        method: "POST",
+        body: JSON.stringify({ title: title, content: content }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((response) => console.log(response));
+    }
+  }
 
   return (
     <>
@@ -22,14 +46,26 @@ function App() {
         </div>
         <div className="CRUD_Section">
           <div className="Add_Section">
+            <input
+              type="text"
+              className="inputField"
+              placeholder="Blog Title..."
+              value={title}
+              onChange={setBlogTitle}
+            />
             <textarea
               name=""
               id=""
               cols="30"
               rows="10"
               className="inputField"
+              placeholder="Blog Content..."
+              value={content}
+              onChange={setBlogContent}
             ></textarea>
-            <button className="Btn">Add</button>
+            <button className="Btn" onClick={onAddButtonClick}>
+              Add
+            </button>
           </div>
 
           <div className="Update_Section">

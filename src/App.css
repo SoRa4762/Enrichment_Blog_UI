@@ -2,6 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* font-size: 24px; */
+}
+
+body {
+  /* font-size: 24px; */
 }
 
 .App {
@@ -68,6 +73,7 @@
   border-radius: 64px;
   font-size: 18px;
   border: none;
+  cursor: pointer;
 }
 
 .hover::button {
@@ -81,8 +87,10 @@
 }
 
 .inputField {
-  /* padding: 5rem; */
-  height: 240px;
+  /* height: 60px; */
+  margin-bottom: 1rem;
+  padding: 0.5rem;
   width: 400px;
   background: rgb(231, 231, 231);
+  font-size: 1rem;
 }
